@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: your-app
+spec:
+  replicas: 3  # Kaç kopya çalıştırılacağı
+  selector:
+    matchLabels:
+      app: your-app
+  template:
+    metadata:
+      labels:
+        app: your-app
+    spec:
+      containers:
+      - name: your-app
+        image: your-registry/your-app:latest  # Docker imajının yolu
+        ports:
+        - containerPort: 3001  # Uygulamanız hangi portu dinliyorsa
